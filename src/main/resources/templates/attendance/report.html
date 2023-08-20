@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Attendance Report</title>
+</head>
+<body>
+    <h1>Attendance Report</h1>
+    <table>
+        <tr>
+            <th>Employee Name</th>
+            <th>Date</th>
+            <th>Present</th>
+        </tr>
+        <tr th:each="attendance : ${attendanceReport}">
+            <td th:text="${attendance.employee.name}"></td>
+            <td th:text="${attendance.date}"></td>
+            <td th:text="${attendance.present}"></td>
+        </tr>
+    </table>
+    <!-- Additional report details -->
+</body>
+</html>
