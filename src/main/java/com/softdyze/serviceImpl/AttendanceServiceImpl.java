@@ -13,6 +13,7 @@ import com.softdyze.service.AttendanceService;
 
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
+
     @Autowired
     private AttendanceRepository attendanceRepository;
 
@@ -29,6 +30,11 @@ public class AttendanceServiceImpl implements AttendanceService {
     @Override
     public void markAttendance(Attendance attendance) {
         attendanceRepository.save(attendance);
+    }
+
+    @Override
+    public long countPresentByEmployee(Employee employee) {
+        return attendanceRepository.countByEmployeeAndPresent(employee, true);
     }
 
     // Add more implementations as needed

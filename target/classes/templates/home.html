@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Welcome to Your Application</h1>
+                        
+                        <!-- Display user username if logged in -->
+                        <div th:if="${loggedInUser}">
+                            <p class="card-text">Welcome, <span th:text="${loggedInUser.username}"></span>!</p>
+                            <a href="/logout" class="btn btn-secondary">Logout</a>
+                        </div>
+                        
+                        <!-- Display login link if not logged in -->
+                        <div th:unless="${loggedInUser}">
+                            <p class="card-text">Please <a href="/login">login</a> to access your account.</p>
+                        </div>
+                        
+                        <!-- Display links for various actions -->
+                        <div class="mt-4">
+                            <a href="/employees/add" class="btn btn-primary btn-block mb-2">Add Employee</a>
+                            <a href="/employees" class="btn btn-primary btn-block mb-2">View Employee</a>
+                            <a href="/attendance/mark" class="btn btn-primary btn-block mb-2">Take Attendance</a>
+                            <a href="/attendance/report" class="btn btn-primary btn-block">View Attendance</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

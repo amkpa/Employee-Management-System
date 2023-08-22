@@ -7,10 +7,15 @@ import com.softdyze.entity.Attendance;
 import com.softdyze.entity.Employee;
 
 public interface AttendanceService {
-	List<Attendance> getAttendanceByEmployee(Employee employee);
 
-	 List<Attendance> getAttendanceByDate(LocalDate date);
+    List<Attendance> getAttendanceByEmployee(Employee employee);
 
-	void markAttendance(Attendance attendance);
-	// Add more methods as needed
+    List<Attendance> getAttendanceByDate(LocalDate date);
+
+    void markAttendance(Attendance attendance);
+
+    // Custom method to count the number of times an employee was present
+    long countPresentByEmployee(Employee employee);
+
+    // Additional custom methods if needed
 }
